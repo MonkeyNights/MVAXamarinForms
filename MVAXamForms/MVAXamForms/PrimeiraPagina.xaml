@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVAXamForms.PrimeiraPagina">
+  <StackLayout Padding="0,10,0,0">
+    <Entry Text="{Binding PrimeiroNumero}"
+           Keyboard="Numeric" Placeholder="Primeiro Numero"
+           Margin="10,0"/>
+    <Entry Text="{Binding SegundoNumero}"
+           Keyboard="Numeric" Placeholder="Segundo Numero"
+           Margin="10,0"/>
+    <Label Text="{Binding Resultado}"
+           Margin="10,0"/>
+    <Button Text="Somar" Command="{Binding SomarCommand}"
+            Margin="10,0"/>
+    <ListView ItemsSource="{Binding Historico}">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <Grid>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+              </Grid.ColumnDefinitions>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+              </Grid.RowDefinitions>
+              <Label Grid.Row="0" Grid.Column="0" 
+                     HorizontalTextAlignment="Center" 
+                     Text="{Binding PrimeiroNumero}"
+                     BackgroundColor="Red"/>
+              <Label Grid.Row="0" Grid.Column="1"
+                     HorizontalTextAlignment="Center"
+                     Text="{Binding SegundoNumero}"
+                     BackgroundColor="Green"/>
+              <Label Grid.Row="1" Grid.Column="0" 
+                     Grid.ColumnSpan="2"
+                     HorizontalTextAlignment="Center" 
+                     FontAttributes="Bold"
+                     BackgroundColor="Lime"
+                     Text="{Binding Resultado}"/>
+            </Grid>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
+</ContentPage>
